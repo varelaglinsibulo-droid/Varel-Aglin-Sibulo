@@ -1,0 +1,68 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-surface-lowest: #0b0f0e;
+  --color-surface-low: #181c1b;
+  --color-surface: #101413;
+  --color-surface-container: #1c201f;
+  --color-surface-high: #262b2a;
+  --color-surface-highest: #313634;
+
+  --color-on-surface: #e0e3e1;
+  --color-on-surface-variant: #bbcabf;
+  --color-outline: #86948a;
+  --color-outline-variant: #3c4a42;
+
+  --color-primary: #4edea3;
+  --color-primary-fixed: #6ffbbe;
+  --color-primary-container: #10b981;
+  --color-on-primary: #003824;
+  --color-on-primary-container: #00422b;
+
+  --color-secondary: #e9c349;
+  --color-secondary-fixed: #ffe088;
+  --color-secondary-container: #af8d11;
+}
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-sans);
+    background-color: #0b0f0e;
+    color: #e0e3e1;
+    overscroll-behavior: none;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
